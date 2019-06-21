@@ -1,61 +1,37 @@
 package com.legobmw99.Wetstone;
 
-import com.legobmw99.Wetstone.block.BlockWetstone;
-
+import com.legobmw99.Wetstone.block.WetstoneBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderItem;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.entity.player.FillBucketEvent;
-import net.minecraftforge.event.world.BlockEvent.NeighborNotifyEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.registries.ObjectHolder;
 
-@Mod(modid = Wetstone.MODID, version = Wetstone.VERSION)
+@Mod(Wetstone.MODID)
 public class Wetstone {
-	public static final String MODID = "wetstone";
-	public static final String VERSION = "1.0";
-	public static Block blockWetstone;
+    public static final String MODID = "wetstone";
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(this);
-	}
+    @ObjectHolder("wetstone:wetstone")
+    public static WetstoneBlock blockWetstone;
 
-	@EventHandler
-	@SideOnly(Side.CLIENT)
-	public void init(FMLInitializationEvent event) {
-		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
-		renderItem.getItemModelMesher().register(Item.getItemFromBlock(blockWetstone), 0,
-				new ModelResourceLocation("wetstone:wetstone", "inventory"));
-	}
 
-	@SubscribeEvent
-	public void onItemRegister(RegistryEvent.Register<Item> e) {
-		e.getRegistry().register(new ItemBlock(blockWetstone).setRegistryName(blockWetstone.getRegistryName()));
-	}
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        
+        @SubscribeEvent
+        public static void onBlockRegister(final RegistryEvent.Register<Block> e) {
+            e.getRegistry().register(new WetstoneBlock());
+        }
 
-	@SubscribeEvent
-	public void onBlockRegister(RegistryEvent.Register<Block> e) {
-		blockWetstone = new BlockWetstone();
-		e.getRegistry().register(blockWetstone);
-	}
+        @SubscribeEvent
+        public static void onItemRegister(final RegistryEvent.Register<Item> e) {
+            Item.Properties properties = new Item.Properties()
+                    .group(ItemGroup.BUILDING_BLOCKS);
+            e.getRegistry().register(new BlockItem(blockWetstone, properties).setRegistryName(blockWetstone.getRegistryName()));
+        }
+    }
+
 }

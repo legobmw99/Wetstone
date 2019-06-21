@@ -1,18 +1,13 @@
 {
-  "result": {
-    "item": "wetstone:wetstone",
-    "count": 4
-  },
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "yxy",
     "xwx",
     "yxy"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "x": {
-      "item": "minecraft:stonebrick",
-      "data":0
+      "item": "minecraft:stone_bricks",
     },
     "y": {
       "item": "minecraft:iron_nugget"
@@ -20,5 +15,9 @@
     "w": {
       "item": "minecraft:water_bucket"
     }
+  },
+  "result": {
+    "item": "wetstone:wetstone",
+    "count": 4
   }
 }
