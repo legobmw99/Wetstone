@@ -20,7 +20,7 @@ public class Wetstone {
 
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
-        
+
         @SubscribeEvent
         public static void onBlockRegister(final RegistryEvent.Register<Block> e) {
             e.getRegistry().register(new WetstoneBlock());
@@ -32,6 +32,7 @@ public class Wetstone {
                     .group(ItemGroup.BUILDING_BLOCKS);
             e.getRegistry().register(new BlockItem(blockWetstone, properties).setRegistryName(blockWetstone.getRegistryName()));
         }
+
     }
 
 }

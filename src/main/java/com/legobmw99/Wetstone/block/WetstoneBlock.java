@@ -3,22 +3,15 @@ package com.legobmw99.Wetstone.block;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.PushReaction;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.stats.Stats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-
-import javax.annotation.Nullable;
 
 public class WetstoneBlock extends Block {
 
@@ -27,15 +20,10 @@ public class WetstoneBlock extends Block {
         setRegistryName("wetstone");
 
     }
-
-    @Override
-    public void onPlayerDestroy(IWorld worldIn, BlockPos pos, BlockState state) {
-        worldIn.destroyBlock(pos,false);
-    }
-
+    
     @Override
     public IFluidState getFluidState(BlockState state) {
-        return Fluids.WATER.getStillFluidState(false);
+        return Fluids.WATER.getFlowingFluidState(7, false);
     }
 
     @Override
@@ -48,21 +36,11 @@ public class WetstoneBlock extends Block {
         return PushReaction.NORMAL;
     }
 
-    /**
-     * Called after the block is set in the Chunk data, but before the Tile Entity
-     * is set
-     */
     @Override
     public void onBlockAdded(BlockState p_220082_1_, World worldIn, BlockPos pos, BlockState p_220082_4_, boolean p_220082_5_) {
         this.checkForMixing(worldIn, pos, p_220082_1_);
     }
 
-    /**
-     * Called when a neighboring block was changed and marks that this state should
-     * perform any checks during a neighbor change. Cases may include when redstone
-     * power is updated, cactus blocks popping off due to a neighboring solid block,
-     * etc.
-     */
     @Override
     public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean p_220069_6_) {
         this.checkForMixing(worldIn, pos, state);

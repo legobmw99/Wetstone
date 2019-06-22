@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "yxy",
-    "xwx",
-    "yxy"
+    "x#x",
+    "#y#",
+    "x#x"
   ],
   "key": {
-    "x": {
-      "item": "minecraft:stone_bricks",
+    "#": {
+      "item": "minecraft:stone_bricks"
     },
-    "y": {
+    "x": {
       "item": "minecraft:iron_nugget"
     },
-    "w": {
+    "y": {
       "item": "minecraft:water_bucket"
     }
   },
