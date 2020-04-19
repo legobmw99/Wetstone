@@ -18,7 +18,7 @@ public class Languages extends LanguageProvider {
         add(Wetstone.NETHER_BRICKS.get(), "Wetstone");
         addLore(Wetstone.NETHER_BRICKS.get(), "Nether Bricks");
         add(Wetstone.SANDSTONE.get(), "Wetstone");
-        addLore(Wetstone.SANDSTONE.get(), "Sandstone Bricks");
+        addLore(Wetstone.SANDSTONE.get(), "Sandstone");
     }
 
     private void addLore(Block key, String lore){
