@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "nin",
+    "ibi",
+    "nin"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:water_bucket"
+    },
+    "i": {
+      "tag": "forge:nuggets/iron"
+    },
+    "n": {
+      "item": "minecraft:nether_bricks"
+    }
+  },
+  "result": {
+    "item": "wetstone:wet_sandstone",
+    "count": 4
+  }
+}

@@ -29,8 +29,9 @@ public class LootTables extends LootTableProvider {
     }
 
     private void addBlockTables() {
-        addSimpleBlock("wetstone", Wetstone.STONE_BRICKS.get());
-
+        addSimpleBlock("wet_stone_bricks", Wetstone.STONE_BRICKS.get());
+        addSimpleBlock("wet_nether_bricks", Wetstone.NETHER_BRICKS.get());
+        addSimpleBlock("wet_sandstone", Wetstone.SANDSTONE.get());
     }
 
     // Useful boilerplate from McJtyLib
