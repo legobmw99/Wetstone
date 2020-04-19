@@ -15,7 +15,8 @@ public class BlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         singleTextureBlock(Wetstone.STONE_BRICKS.get());
-
+        singleTextureBlock(Wetstone.NETHER_BRICKS.get());
+        singleTextureBlock(Wetstone.SANDSTONE.get());
     }
 
 

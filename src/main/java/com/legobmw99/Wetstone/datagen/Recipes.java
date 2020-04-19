@@ -25,12 +25,15 @@ public class Recipes extends RecipeProvider {
         add('b', Items.WATER_BUCKET);
         add('i', Tags.Items.NUGGETS_IRON);
         add('s', Items.STONE_BRICKS);
+        add('S', Tags.Items.SANDSTONE);
+        add('n', Items.NETHER_BRICKS);
     }
 
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         buildShaped(consumer, Wetstone.STONE_BRICKS.get(), 4, Items.WATER_BUCKET, "sis", "ibi", "sis");
-
+        buildShaped(consumer, Wetstone.NETHER_BRICKS.get(), 4, Items.WATER_BUCKET, "SiS", "ibi", "SiS");
+        buildShaped(consumer, Wetstone.SANDSTONE.get(), 4, Items.WATER_BUCKET, "nin", "ibi", "nin");
     }
 
 

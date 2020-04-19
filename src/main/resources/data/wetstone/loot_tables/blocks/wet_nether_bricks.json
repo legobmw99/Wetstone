@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "wet_stone_bricks",
+      "name": "wet_nether_bricks",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "wetstone:wet_stone_bricks"
+          "name": "wetstone:wet_nether_bricks"
         }
       ],
       "conditions": [

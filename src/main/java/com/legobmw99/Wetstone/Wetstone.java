@@ -23,9 +23,15 @@ public class Wetstone {
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Wetstone.MODID);
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Wetstone.MODID);
 
+    // todo look into data fixers
     public static final RegistryObject<Block> STONE_BRICKS = BLOCKS.register("wet_stone_bricks", WetstoneBlock::new);
     public static final RegistryObject<Item> STONE_BRICKS_ITEM = ITEMS.register("wet_stone_bricks", () -> new BlockItem(STONE_BRICKS.get(), ITEM_PROP));
 
+    public static final RegistryObject<Block> NETHER_BRICKS = BLOCKS.register("wet_nether_bricks", WetstoneBlock::new);
+    public static final RegistryObject<Item> NETHER_BRICKS_ITEM = ITEMS.register("wet_nether_bricks", () -> new BlockItem(NETHER_BRICKS.get(), ITEM_PROP));
+
+    public static final RegistryObject<Block> SANDSTONE = BLOCKS.register("wet_sandstone", WetstoneBlock::new);
+    public static final RegistryObject<Item> SANDSTONE_ITEM = ITEMS.register("wet_sandstone", () -> new BlockItem(SANDSTONE.get(), ITEM_PROP));
 
     public static void register() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
