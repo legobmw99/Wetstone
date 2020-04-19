@@ -23,8 +23,8 @@ public class Wetstone {
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Wetstone.MODID);
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Wetstone.MODID);
 
-    public static final RegistryObject<Block> STONE_BRICKS = BLOCKS.register("wetstone", WetstoneBlock::new);
-    public static final RegistryObject<Item> STONE_BRICKS_ITEM = ITEMS.register("wetstone", () -> new BlockItem(STONE_BRICKS.get(), ITEM_PROP));
+    public static final RegistryObject<Block> STONE_BRICKS = BLOCKS.register("wet_stone_bricks", WetstoneBlock::new);
+    public static final RegistryObject<Item> STONE_BRICKS_ITEM = ITEMS.register("wet_stone_bricks", () -> new BlockItem(STONE_BRICKS.get(), ITEM_PROP));
 
 
     public static void register() {

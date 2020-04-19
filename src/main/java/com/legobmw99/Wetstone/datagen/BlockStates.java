@@ -14,12 +14,12 @@ public class BlockStates extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        singleTextureBlock(Wetstone.STONE_BRICKS.get(), "wetstone", "block/wetstone");
+        singleTextureBlock(Wetstone.STONE_BRICKS.get());
 
     }
 
 
-    private void singleTextureBlock(Block block, String model, String texture) {
+    private void singleTextureBlock(Block block) {
         Wetstone.LOGGER.debug("Creating Block Data for " + block.getRegistryName());
         simpleBlock(block);
     }

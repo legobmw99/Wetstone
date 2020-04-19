@@ -14,7 +14,7 @@ public class ItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        parentedBlock(Wetstone.STONE_BRICKS.get(), "block/wetstone");
+        parentedBlock(Wetstone.STONE_BRICKS.get(), "block/wet_stone_bricks");
     }
 
     public void parentedBlock(Block block, String model) {

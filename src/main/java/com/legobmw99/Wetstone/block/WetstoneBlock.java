@@ -3,20 +3,37 @@ package com.legobmw99.Wetstone.block;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.PushReaction;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class WetstoneBlock extends Block {
 
     public WetstoneBlock() {
-        super(Properties.create(Material.IRON).hardnessAndResistance(2.0f).sound(SoundType.STONE));
+         this(Material.IRON, 2.0f, SoundType.STONE);
+    }
+
+    public WetstoneBlock(Material mat){
+        this(mat,2.0f,SoundType.STONE);
+    }
+
+    public WetstoneBlock(Material mat, float resistance, SoundType sound){
+        super(Properties.create(mat).hardnessAndResistance(resistance).sound(sound));
     }
     
     @Override
@@ -42,6 +59,14 @@ public class WetstoneBlock extends Block {
     @Override
     public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean p_220069_6_) {
         this.checkForMixing(worldIn, pos, state);
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+        ITextComponent lore = new TranslationTextComponent(this.getTranslationKey() + ".lore");
+        lore.setStyle(lore.getStyle().setColor(TextFormatting.GRAY));
+        tooltip.add(lore);
     }
 
     public boolean checkForMixing(World worldIn, BlockPos pos, BlockState state) {

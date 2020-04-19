@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "wetstone:block/wetstone"
+    "all": "wetstone:block/wet_stone_bricks"
   }
 }
