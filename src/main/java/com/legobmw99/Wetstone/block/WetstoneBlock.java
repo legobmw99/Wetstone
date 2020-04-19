@@ -17,8 +17,6 @@ public class WetstoneBlock extends Block {
 
     public WetstoneBlock() {
         super(Properties.create(Material.IRON).hardnessAndResistance(2.0f).sound(SoundType.STONE));
-        setRegistryName("wetstone");
-
     }
     
     @Override

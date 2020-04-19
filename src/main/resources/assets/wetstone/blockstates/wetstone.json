@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": { "model": "wetstone:block/wetstone" }
-	}
+  "variants": {
+    "": {
+      "model": "wetstone:block/wetstone"
+    }
+  }
 }

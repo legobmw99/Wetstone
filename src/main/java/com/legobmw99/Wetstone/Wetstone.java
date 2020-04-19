@@ -5,34 +5,35 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(Wetstone.MODID)
 public class Wetstone {
     public static final String MODID = "wetstone";
+    public static final Logger LOGGER = LogManager.getLogger();
 
-    @ObjectHolder("wetstone:wetstone")
-    public static WetstoneBlock blockWetstone;
+    private static final Item.Properties ITEM_PROP = new Item.Properties().group(ItemGroup.BUILDING_BLOCKS);
+
+    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Wetstone.MODID);
+    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Wetstone.MODID);
+
+    public static final RegistryObject<Block> STONE_BRICKS = BLOCKS.register("wetstone", WetstoneBlock::new);
+    public static final RegistryObject<Item> STONE_BRICKS_ITEM = ITEMS.register("wetstone", () -> new BlockItem(STONE_BRICKS.get(), ITEM_PROP));
 
 
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
+    public static void register() {
+        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    }
 
-        @SubscribeEvent
-        public static void onBlockRegister(final RegistryEvent.Register<Block> e) {
-            e.getRegistry().register(new WetstoneBlock());
-        }
-
-        @SubscribeEvent
-        public static void onItemRegister(final RegistryEvent.Register<Item> e) {
-            Item.Properties properties = new Item.Properties()
-                    .group(ItemGroup.BUILDING_BLOCKS);
-            e.getRegistry().register(new BlockItem(blockWetstone, properties).setRegistryName(blockWetstone.getRegistryName()));
-        }
-
+    public Wetstone() {
+        Wetstone.register();
     }
 
 }
