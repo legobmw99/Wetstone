@@ -1,3 +1,4 @@
 {
-  "block.wetstone.wetstone": "Wetstone"
+  "block.wetstone.wet_stone_bricks": "Wetstone",
+  "block.wetstone.wet_stone_bricks.lore": "Stone Bricks"
 }
