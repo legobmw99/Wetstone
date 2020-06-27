@@ -20,8 +20,8 @@ public class Wetstone {
 
     private static final Item.Properties ITEM_PROP = new Item.Properties().group(ItemGroup.BUILDING_BLOCKS);
 
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Wetstone.MODID);
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Wetstone.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Wetstone.MODID);
+    public static final DeferredRegister<Item> ITEMS =  DeferredRegister.create(ForgeRegistries.ITEMS, Wetstone.MODID);
 
     // todo look into data fixers
     public static final RegistryObject<Block> STONE_BRICKS = BLOCKS.register("wet_stone_bricks", WetstoneBlock::new);

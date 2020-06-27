@@ -4,8 +4,8 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.PushReaction;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
@@ -13,9 +13,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.util.text.*;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
@@ -25,19 +23,19 @@ import java.util.List;
 public class WetstoneBlock extends Block {
 
     public WetstoneBlock() {
-         this(Material.IRON, 2.0f, SoundType.STONE);
+        this(Material.IRON, 2.0f, SoundType.STONE);
     }
 
-    public WetstoneBlock(Material mat){
-        this(mat,2.0f,SoundType.STONE);
+    public WetstoneBlock(Material mat) {
+        this(mat, 2.0f, SoundType.STONE);
     }
 
-    public WetstoneBlock(Material mat, float resistance, SoundType sound){
+    public WetstoneBlock(Material mat, float resistance, SoundType sound) {
         super(Properties.create(mat).hardnessAndResistance(resistance).sound(sound));
     }
-    
+
     @Override
-    public IFluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return Fluids.WATER.getFlowingFluidState(7, false);
     }
 
@@ -64,8 +62,8 @@ public class WetstoneBlock extends Block {
     @Override
     public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        ITextComponent lore = new TranslationTextComponent(this.getTranslationKey() + ".lore");
-        lore.setStyle(lore.getStyle().setColor(TextFormatting.GRAY));
+        IFormattableTextComponent lore = new TranslationTextComponent(this.getTranslationKey() + ".lore");
+        lore.func_230530_a_(lore.getStyle().func_240718_a_(Color.func_240744_a_(TextFormatting.GRAY))); // setStyle, setColor, fromTextFormatting
         tooltip.add(lore);
     }
 
