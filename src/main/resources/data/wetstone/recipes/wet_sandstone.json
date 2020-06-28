@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "nin",
+    "SiS",
     "ibi",
-    "nin"
+    "SiS"
   ],
   "key": {
     "b": {
       "item": "minecraft:water_bucket"
     },
+    "S": {
+      "tag": "forge:sandstone"
+    },
     "i": {
       "tag": "forge:nuggets/iron"
-    },
-    "n": {
-      "item": "minecraft:nether_bricks"
     }
   },
   "result": {
