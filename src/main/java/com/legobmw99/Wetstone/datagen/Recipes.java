@@ -33,8 +33,8 @@ public class Recipes extends RecipeProvider {
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
         buildShaped(consumer, Wetstone.STONE_BRICKS.get(), 4, Items.WATER_BUCKET, "sis", "ibi", "sis");
-        buildShaped(consumer, Wetstone.NETHER_BRICKS.get(), 4, Items.WATER_BUCKET, "SiS", "ibi", "SiS");
-        buildShaped(consumer, Wetstone.SANDSTONE.get(), 4, Items.WATER_BUCKET, "nin", "ibi", "nin");
+        buildShaped(consumer, Wetstone.NETHER_BRICKS.get(), 4, Items.WATER_BUCKET, "nin", "ibi", "nin");
+        buildShaped(consumer, Wetstone.SANDSTONE.get(), 4, Items.WATER_BUCKET, "SiS", "ibi", "SiS");
     }
 
 
