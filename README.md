@@ -1,4 +1,4 @@
-Wetstone 1.5.2
+Wetstone 1.5.3
 =========
 [![ CurseForge](http://cf.way2muchnoise.eu/284742.svg)](https://minecraft.curseforge.com/projects/wetstone)
 

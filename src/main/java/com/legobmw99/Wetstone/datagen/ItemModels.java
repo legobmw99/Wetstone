@@ -3,9 +3,9 @@ package com.legobmw99.Wetstone.datagen;
 import com.legobmw99.Wetstone.Wetstone;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ItemModels extends ItemModelProvider {
     public ItemModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {

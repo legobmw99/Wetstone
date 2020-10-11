@@ -2,13 +2,11 @@ package com.legobmw99.Wetstone.datagen;
 
 import com.legobmw99.Wetstone.Wetstone;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.model.Model;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ModelFile;
-import org.antlr.v4.runtime.LexerNoViableAltException;
+import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BlockStates extends BlockStateProvider {
 
@@ -23,9 +21,9 @@ public class BlockStates extends BlockStateProvider {
         simpleBottomTopBlock(Wetstone.SANDSTONE.get());
     }
 
-    private void simpleBottomTopBlock(Block b){
+    private void simpleBottomTopBlock(Block b) {
         ResourceLocation t = blockTexture(b);
-        ModelFile m =  models().cubeBottomTop(t.getPath(), t, extend(t, "_bottom"), extend(t, "_top"));
+        ModelFile m = models().cubeBottomTop(t.getPath(), t, extend(t, "_bottom"), extend(t, "_top"));
         simpleBlock(b, m);
     }
 
